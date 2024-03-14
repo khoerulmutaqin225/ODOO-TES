@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+          <record id="object0" model="odoo_module.odoo_module">
+            <field name="name">Object 0</field>
+            <field name="code">10</field>
+            <field name="materialType">fabric</field>
+            <field name="relatedSupplier">supplier1</field>
+            <field name="materialBuy">101</field>
+          </record>
+
+          <record id="object1" model="odoo_module.odoo_module">
+            <field name="name">Object 1</field>
+            <field name="code">10</field>
+            <field name="materialType">fabric</field>
+            <field name="relatedSupplier">supplier1</field>
+            <field name="materialBuy">102</field>
+          </record>
+
+          <record id="object2" model="odoo_module.odoo_module">
+            <field name="name">Object 2</field>
+            <field name="code">10</field>
+            <field name="materialType">fabric</field>
+            <field name="relatedSupplier">supplier1</field>
+            <field name="materialBuy">103</field>
+          </record>
+
+          <record id="object3" model="odoo_module.odoo_module">
+            <field name="name">Object 3</field>
+            <field name="code">10</field>
+            <field name="materialType">fabric</field>
+            <field name="relatedSupplier">supplier1</field>
+            <field name="materialBuy">104</field>
+          </record>
+
+          <record id="object4" model="odoo_module.odoo_module">
+            <field name="name">Object 4</field>
+            <field name="code">10</field>
+            <field name="materialType">fabric</field>
+            <field name="relatedSupplier">supplier1</field>
+            <field name="materialBuy">105</field>
+          </record>
+
+    </data>
+</odoo>
