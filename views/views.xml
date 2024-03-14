@@ -1,0 +1,103 @@
+<odoo>
+  <data>
+
+    <!-- Filter berdasarkan Filter materialType  -->
+    <record id="odoo_module_form_view_id" model="ir.ui.view">
+      <field name="name">odoo_module_search_view_id</field>
+      <field name="model">odoo_module.odoo_module</field>
+      <field name="arch" type="xml">
+        <search>
+          <group string="Group By">
+            <filter name="materialType" string="Material Type" domain="[]" context="{'group_by': 'materialType'}" />
+          </group>
+          <searchpanel>
+            <field name="materialType" icon="fa-list"/>
+          </searchpanel>
+        </search>
+      </field>
+    </record>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_module.list">
+      <field name="name">odoo_module list</field>
+      <field name="model">odoo_module.odoo_module</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="code"/>
+          <field name="materialType"/>
+          <field name="relatedSupplier"/>
+          <field name="materialBuy"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="'odoo_module_form_view_id" model="ir.ui.view">
+      <field name="name">Odoo Moduld</field>
+      <field name="model">odoo_module.odoo_module</field>
+      <field name="arch" type="xml">
+        <form string="Odoo Modul">
+          <sheet>
+            <div>
+              <label for="code" string="Code Barang" />
+            </div>
+            <h1>
+              <field name="code" />
+            </h1>
+            <group>
+              <group >
+                <field name="name" />
+                <field name="materialType" />
+              </group>
+              <group >
+                <field name="relatedSupplier" />
+                <field name="materialBuy" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_module.action_window">
+      <field name="name">odoo_module window</field>
+      <field name="res_model">odoo_module.odoo_module</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="odoo_module.action_server">
+      <field name="name">odoo_module server</field>
+      <field name="model_id" ref="model_odoo_module_odoo_module"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="odoo_module" id="odoo_module.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="odoo_module.menu_1" parent="odoo_module.menu_root"/>
+    <menuitem name="Menu 2" id="odoo_module.menu_2" parent="odoo_module.menu_root"/>
+
+    <!-- actions -->
+    <menuitem name="List" id="odoo_module.menu_1_list" parent="odoo_module.menu_1" action="odoo_module.action_window"/>
+
+    <menuitem name="Server to list" id="odoo_module" parent="odoo_module.menu_2" action="odoo_module.action_server"/>
+
+  </data>
+</odoo>
